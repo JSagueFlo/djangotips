@@ -1,5 +1,4 @@
 ### settings.py
-
         USE_I18N = True
         ...
         MIDDLEWARE_CLASSES = (
@@ -47,26 +46,60 @@
 
 
 ### Redirect to current page after changing language
+        - EXAMPLE 1:
         <form action="/i18n/setlang/" method="post" style ='float: left; padding: 5px;'>
               {% csrf_token %}
-              <input name="next"
-                     type="hidden"
-                     value="{{ request.path|slice:'3:' }}" />
+              <input name="next" type="hidden" value="{{ request.path|slice:'3:' }}" />
               <input name="language" type="hidden" value="es" />
-              <input type="image"
-                     value="Spanish"
-                     src="{% static "spain.jpg" %}"
-                     height="20"
-                     width="30" />
+              <input type="image" value="Spanish" src="{% static "spain.jpg" %}" height="20" width="30" />
         </form>
+        - EXAMPLE 2:
+        {% load static i18n %}
+        {% get_current_language as LANGUAGE_CODE %}
+        <!-- Dropdown Structure redirect to language -->
+        <ul id="select_language_dropdown" class="dropdown-content">
+            <!-- Catalan -->
+            <li>
+                <form style="height: 50px;" action="/i18n/setlang/" method="post">{% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.path|slice:'3:' }}" />
+                    <input name="language" type="hidden" value="ca" />
+                    <button class="btn grey darken-1" type="submit" style="width: 100%; height: 100%;">
+                        <input type="image" value="{{ 'ca'|language_name_local|title }}" src="{% static 'img/flags/ca.png' %}" height="20" width="20" style="margin-bottom: -5px;" />
+                        {{ 'ca'|language_name_local|title }}
+                    </button>
+                </form>
+            </li>
+            <!-- Spanish -->
+            <li>
+                <form style="height: 50px;" action="/i18n/setlang/" method="post">{% csrf_token %}
+                    <button class="btn grey darken-1" type="submit" style="width: 100%; height: 100%;">
+                        <input name="next" type="hidden" value="{{ request.path|slice:'3:' }}" />
+                        <input name="language" type="hidden" value="es" />
+                        <input type="image" value="{{ 'es'|language_name_local|title }}" src="{% static 'img/flags/es.png' %}" height="20" width="20" style="margin-bottom: -5px;" />
+                        {{ 'es'|language_name_local|title }}
+                    </button>
+                </form>
+            </li>
+            <!-- English -->
+            <li>
+                <form style="height: 50px;" action="/i18n/setlang/" method="post">{% csrf_token %}
+                    <button class="btn grey darken-1" type="submit" style="width: 100%; height: 100%;">
+                        <input name="next" type="hidden" value="{{ request.path|slice:'3:' }}" />
+                        <input name="language" type="hidden" value="en" />
+                        <input type="image" value="{{ 'en'|language_name_local|title }}" src="{% static 'img/flags/en.png' %}" height="20" width="20" style="margin-bottom: -5px;" />
+                        {{ 'en'|language_name_local|title }}
+                    </button>
+                </form>
+            </li>
+        </ul>
 
 
 ### Templates that need internationalization
-    Add {% load i18n %} to any template with traducible text  
-    NOTE: It doesn't inherit between templates!!!
+        Add {% load i18n %} to any template with traducible text  
+        NOTE: It doesn't inherit between templates!!!
 
 
-### Strings in templates that need translating*
+### Strings in templates that need translating
         {% trans "name" %}
         {% blocktrans %} Text to be translated {% endblocktrans %}
 
@@ -94,11 +127,11 @@
             }
 
 ### Create translate files
-    In either project root or application root
-        mkdir locale
-        django-admin.py makemessages -l <language_code>
-    Language code is only the first part: es, en, de (not es_ES, en_US, en_EN)
-    In locale/<language_code>/LC_MESSAGES/ there will be a .po file. It contains all the strings to be translated.
+        In either project root or application root
+            mkdir locale
+            django-admin.py makemessages -l <language_code>
+        Language code is only the first part: es, en, de (not es_ES, en_US, en_EN)
+        In locale/<language_code>/LC_MESSAGES/ there will be a .po file. It contains all the strings to be translated.
 
 
 ### Compile translate files
