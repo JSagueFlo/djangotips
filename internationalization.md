@@ -38,11 +38,11 @@
 
 
 ### Links redirect to the corresponding language ones
-  With GET it works fine without indicating anything, with POST it turns it into a GET and we lose data.
-    - SOLUTION: 
+        With GET it works fine without indicating anything, with POST it turns it into a GET and we lose data.
+        - SOLUTION: 
             {% get_current_language as LANGUAGE_CODE %}
             <a href="/{{ LANGUAGE_CODE }}/terms/">{% trans "Terms and Conditions" %}</a>
-    - BETTER SOLUTION, put all urls in templates as:
+        - BETTER SOLUTION, put all urls in templates as:
             {% url 'name-in-urls.py' %} -> Links correctly to the selected language
 
 
