@@ -1,3 +1,5 @@
+# Internationalization
+
 ### settings.py
         USE_I18N = True
         ...
