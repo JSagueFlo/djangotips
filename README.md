@@ -80,7 +80,7 @@
 
 		python manage.py createsuperuser
 
-9. Views
+9. Create a home view
 
 	We will use generic.views to program our views
 
@@ -96,6 +96,22 @@
 		        context = super().get_context_data(**kwargs)
 		        context['test'] = "Home view!"
 		        return context
+
+	Notice the template_name "home.html", lets create the template
+
+	1. Create a directory inside generic called 'templates'
+	2. Inside 'templates' create a 'home.html' file
+
+		{% load static %}
+		<html>
+		<head>
+			<title>Home</title>
+			<link rel="stylesheet" href="{% static 'example.css' %}">
+		</head>
+		<body>
+			<h1>Home h1 tag</h1>
+		</body>
+		</html>
 
 10. 
 11. 
