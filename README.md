@@ -29,8 +29,22 @@
 
 		python manage.py startapp generic_app
 
-6. Set your database
+6. Set the settings of your project
 	
+	### Custom apps
+		
+		INSTALLED_APPS = [
+		    'django.contrib.admin',
+		    'django.contrib.auth',
+		    'django.contrib.contenttypes',
+		    'django.contrib.sessions',
+		    'django.contrib.messages',
+		    'django.contrib.staticfiles',
+		    # Custom apps
+		    'generic',
+		]
+
+	### Database
 	Default is SQLite, but if you want to use PostgreSQL modify settings.py as follows:
 
 		DATABASES = {
@@ -44,6 +58,19 @@
 		    }
 		}
 
+	### Static files
+	With the following configuration, create a 'static' directory at your project folder, next to 'manage.py' file.
+	Add your static files such as .js, .css, .jpg... to this directory
+
+		STATIC_URL = '/static/'
+		STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+		STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+	### Cookie session age
+
+		# Session expires in 5 minutes
+		SESSION_COOKIE_AGE = 5 * 60
+
 7. Check for migrations and migrate them to your database
 
 		python manage.py makemigrations
@@ -53,7 +80,23 @@
 
 		python manage.py createsuperuser
 
-9. 
+9. Views
+
+	We will use generic.views to program our views
+
+		from django.shortcuts import render
+		# Class based views
+		from django.views.generic import TemplateView
+
+		# Create your views here.
+		class HomeView(TemplateView):
+		    template_name = "home.html"
+			
+		    def get_context_data(self, **kwargs):
+		        context = super().get_context_data(**kwargs)
+		        context['test'] = "Home view!"
+		        return context
+
 10. 
 11. 
 12. 
