@@ -115,6 +115,21 @@
 		</html>
 		```
 
+	To publish the HomeView modify urls.py like this
+
+		from django.contrib import admin
+		from django.urls import path
+		from generic.views import HomeView
+
+		urlpatterns = [
+		    path('admin/', admin.site.urls),
+		    path('', HomeView.as_view(), name="home"),
+		    # The following path puts all the urls found
+		    # in generic.urls.py inside the url domain.com/generic/...
+		    # path('generic/', include('generic.urls')),
+		]
+
+
 10. 
 11. 
 12. 
