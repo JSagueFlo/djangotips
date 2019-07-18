@@ -115,7 +115,7 @@
 		</html>
 		```
 
-	To publish the HomeView modify urls.py like this
+	To publish the HomeView modify project_name.urls.py like this
 
 		from django.contrib import admin
 		from django.urls import path
