@@ -43,14 +43,17 @@
 		        'PORT': '5432',
 		    }
 		}
-		
-7. 
-8. 
-9. for PostgreSQL modify settings.py as follows:
-		
-		aklsfjd
-		asdf
 
-10. python manage.py makemigrations
-11. python manage.py migrate
-12. python manage.py createsuperuser
+7. Check for migrations and migrate them to your database
+
+		python manage.py makemigrations
+		python manage.py migrate
+
+8. Create a super user to administrate your site
+
+		python manage.py createsuperuser
+
+9. 
+10. 
+11. 
+12. 
