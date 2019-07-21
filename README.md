@@ -44,6 +44,27 @@
 		    'generic',
 		]
 
+	### Templates
+	By default, any 'templates' directory in app directory will be read.  
+	Adding 'os.path.join(BASE_DIR, 'templates')' as element of 'DIRS' will allow us to create a 'templates' directory in the project root directory (near manage.py) containing more templates.  
+	This way, we can overide templates like 'auth' ones (e.g. registration/reset_password_form.html)
+
+		TEMPLATES = [
+		    {
+		        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+		        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+		        'APP_DIRS': True,
+		        'OPTIONS': {
+		            'context_processors': [
+		                'django.template.context_processors.debug',
+		                'django.template.context_processors.request',
+		                'django.contrib.auth.context_processors.auth',
+		                'django.contrib.messages.context_processors.messages',
+		            ],
+		        },
+		    },
+		]
+
 	### Database
 	Default is SQLite, but if you want to use PostgreSQL modify settings.py as follows:
 
