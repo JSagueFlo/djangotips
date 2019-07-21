@@ -118,10 +118,9 @@
 		        context['test'] = "Home view!"
 		        return context
 
-	Notice the template_name "home.html", lets create the template
-
-	1. Create a directory inside generic called 'templates'
-	2. Inside 'templates' create a 'home.html' file
+	Notice the template_name "home.html", lets create the template  
+	*You can create your home.html template in the root templates directory or create a directory inside generic called 'templates'*  
+	*Inside 'templates' create a 'home.html' file*
 
 		```
 		{% load static %}
@@ -149,8 +148,3 @@
 		    # in generic.urls.py inside the url domain.com/generic/...
 		    # path('generic/', include('generic.urls')),
 		]
-
-
-10. 
-11. 
-12. 
