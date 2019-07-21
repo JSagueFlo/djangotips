@@ -62,7 +62,7 @@
 
 	**NOTE:** This Signup view is a very basic one. Check out for more detailed registration process.
 	./templates/signup.html
-	
+
 		```
 		{% extends '_base.html' %}
 		{% load static %}
@@ -83,7 +83,6 @@
 
 	./templates/registration/login.html
 
-		```
 		{% extends '_base.html' %}
 		{% load static %}
 		{% block title %} - Login{% endblock %}
@@ -99,7 +98,6 @@
 			</div>
 		</div>
 		{% endblock %}
-		```
 
 	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_complete.html
