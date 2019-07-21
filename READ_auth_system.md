@@ -63,7 +63,6 @@
 	**NOTE:** This Signup view is a very basic one. Check out for more detailed registration process.
 	./templates/signup.html
 
-		```
 		{% extends '_base.html' %}
 		{% load static %}
 		{% block title %} - Signup{% endblock %}
@@ -79,7 +78,6 @@
 			</div>
 		</div>
 		{% endblock %}
-		```
 
 	./templates/registration/login.html
 
@@ -102,7 +100,6 @@
 	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_complete.html
 
-		```
 		{% extends '_base.html' %}
 		{% load static %}
 		{% block title %} - Password reset complete1{% endblock %}
@@ -114,12 +111,10 @@
 			</div>
 		</div>
 		{% endblock %}
-		```
 
 	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_confirm.html
 
-		```
 		{% extends '_base.html' %}
 		{% load static %}
 		{% block title %} - Enter new password{% endblock %}
@@ -135,12 +130,10 @@
 			</div>
 		</div>
 		{% endblock %}
-		```
 
 	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_done.html
 
-		```
 		{% extends '_base.html' %}
 		{% load static %}
 		{% block title %} - Email Sent{% endblock %}
@@ -152,12 +145,10 @@
 			</div>
 		</div>
 		{% endblock %}
-		```
 
 	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_form.html
 
-		```
 		{% extends '_base.html' %}
 		{% load static %}
 		{% block title %} - Reset password{% endblock %}
@@ -174,4 +165,3 @@
 			</div>
 		</div>
 		{% endblock %}
-		```
