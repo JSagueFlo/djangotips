@@ -99,6 +99,7 @@
 		{% endblock %}
 		```
 
+	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_complete.html
 		```
 		{% extends '_base.html' %}
@@ -114,6 +115,7 @@
 		{% endblock %}
 		```
 
+	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_confirm.html
 		```
 		{% extends '_base.html' %}
@@ -133,6 +135,7 @@
 		{% endblock %}
 		```
 
+	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_done.html
 		```
 		{% extends '_base.html' %}
@@ -148,6 +151,7 @@
 		{% endblock %}
 		```
 
+	**NOTE:** For some reason this template **MUST BE** in project **root directory** 'templates'
 	./templates/registration/password_reset_form.html
 		```
 		{% extends '_base.html' %}
