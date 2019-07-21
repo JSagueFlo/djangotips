@@ -92,6 +92,13 @@
 		# Session expires in 5 minutes
 		SESSION_COOKIE_AGE = 5 * 60
 
+	### Emailing
+	Just in case that you need to handle emails:
+
+		# Emailing system
+		# This will fake-send emails. Emails will be shown at console.
+		EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 7. Check for migrations and migrate them to your database
 
 		python manage.py makemigrations
